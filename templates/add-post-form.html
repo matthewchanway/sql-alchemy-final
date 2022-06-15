@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Post for {{user.first_name}} {{user.last_name}}</h1>
+    <form action = "/users/{{user.id}}/posts/new" method = "POST">
+        <input type = "text" name="title" placeholder = "Title"> <br> <br>
+        <input type = "textarea" name="content" placeholder = "Content" rows ="2" > <br><br>
+        {% for tag in tags %}
+        <input type ="checkbox" id="{{tag.id}}" name="check" value="{{tag.id}}">
+        <label for="{{tag.id}}">{{tag.name}}</label><br>
+        {% endfor %}
+        <button>Submit</button>
+
+    </form>
+</body>
+</html>
